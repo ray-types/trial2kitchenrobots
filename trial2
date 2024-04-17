@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Robots Decision Maker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .form {
+            margin-bottom: 30px;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 40px);
+            padding: 12px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input[type="number"]:focus {
+            border-color: #0056b3;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Robots for Restaurant Kitchens decision-making program!</h1>
+        <div class="form">
+            <label for="budget">Enter your budget:</label><br>
+            <input type="number" id="budget" placeholder="Enter your budget">
+            <button onclick="makeDecision()">Make Decision</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        function makeDecision() {
+            var budget = parseInt(document.getElementById('budget').value);
+            var resultDiv = document.getElementById('result');
+
+            if (isNaN(budget) || budget <= 0) {
+                resultDiv.innerHTML = "<div class='result-text'>Please enter a valid budget.</div>";
+            } else {
+                var decision = budget > 10 ? 'Yes' : 'No';
+                resultDiv.innerHTML = "<div class='result-text'>Should you consider robots? " + decision + "</div>";
+            }
+        }
+    </script>
+</body>
+</html>
